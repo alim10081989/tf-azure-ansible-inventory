@@ -80,7 +80,7 @@ resource "azurerm_network_interface" "demo_terraform_nic" {
 }
 
 # Connect the security group to the network interface
-resource "azurerm_network_interface_security_group_association" "demo_bsg" {
+resource "azurerm_network_interface_security_group_association" "demo_nsg" {
   count                     = 2
   network_interface_id      = azurerm_network_interface.demo_terraform_nic[count.index].id
   network_security_group_id = azurerm_network_security_group.demo_terraform_nsg.id
