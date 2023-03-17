@@ -1,0 +1,23 @@
+- hosts: all
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Ping machine
+      ping:
+
+    - name: "Ubuntu Update"
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: "Install nginx"
+      apt:
+        name: ["nginx"]
+        state: latest
+
+  handlers:
+    - name: "Start Nginx"
+      service:
+        name: nginx
+        state: started
