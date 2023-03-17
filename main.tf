@@ -153,5 +153,5 @@ resource "local_file" "hosts_cfg" {
       ubuntu_hosts = azurerm_linux_virtual_machine.demo_terraform_vm.*.public_ip_address
     }
   )
-  filename = "./inventory"
+  filename = "./install/inventory"
 }
